@@ -7,7 +7,7 @@ public class Main2 {
         Scanner leitor = new Scanner(System.in);
         ArrayList<String> tarefas = new ArrayList<>();
         int opcao = 0;
-
+        String tarefa;
         while (opcao != 4) {
             System.out.println("\n--- TODO LIST ---");
             System.out.println("1. Adicionar tarefa");
@@ -18,12 +18,15 @@ public class Main2 {
 
             // Lê a opção e limpa o buffer do teclado
             opcao = leitor.nextInt();
-            leitor.nextLine(); 
+           
+            tarefa = leitor.nextLine(); 
 
             switch (opcao) {
                 case 1:
+                	tarefa = leitor.nextLine();
                     System.out.print("Nome da tarefa a adicionar: ");
                     
+                    tarefas.add(tarefa);
                     System.out.println("Tarefa adicionada!");
                     break;
 
@@ -32,7 +35,10 @@ public class Main2 {
                     if (tarefas.isEmpty()) {
                         System.out.println("A lista está vazia.");
                     } else {
-                        
+                        for(String Tver:tarefas)
+                        {
+                        	System.out.println(Tver);
+                        }
                     }
                     break;
 
@@ -40,7 +46,7 @@ public class Main2 {
                     System.out.print("Número da tarefa a remover: ");
                     int id = leitor.nextInt();
                     if (id >= 0 && id < tarefas.size()) {
-                       
+                       tarefas.remove(id);
                         System.out.println("Tarefa removida!");
                     } else {
                         System.out.println("Índice inválido.");
